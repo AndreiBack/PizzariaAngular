@@ -18,6 +18,9 @@ import { FuncionarioDetailsComponent } from './components/funcionario/funcionari
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { EnderecoDetailsComponent } from './components/endereco/endereco-details/endereco-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { IndexComponent } from './components/layout/index/index.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FuncionarioListComponent,
     FuncionarioDetailsComponent,
     EnderecoListComponent,
-    EnderecoDetailsComponent
+    EnderecoDetailsComponent,
+    HeaderComponent,
+    IndexComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
