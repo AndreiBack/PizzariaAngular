@@ -17,6 +17,7 @@ import { FuncionarioListComponent } from './components/funcionario/funcionario-l
 import { FuncionarioDetailsComponent } from './components/funcionario/funcionario-details/funcionario-details.component';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
 import { EnderecoDetailsComponent } from './components/endereco/endereco-details/endereco-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EnderecoDetailsComponent } from './components/endereco/endereco-details
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
