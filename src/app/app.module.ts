@@ -21,6 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { IndexComponent } from './components/layout/index/index.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,9 +46,11 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     FooterComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
