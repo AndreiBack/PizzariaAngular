@@ -7,7 +7,7 @@ import { Pizza } from '../models/pizza';
   providedIn: 'root'
 })
 export class PizzaService {
-  API: string = 'http://localhost:8080/api/pizzas';
+  API: string = 'http://localhost:8080/pizzas';
   http = inject(HttpClient);
 
   constructor() { }

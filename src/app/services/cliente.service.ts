@@ -7,7 +7,7 @@ import { Observable, catchError, of, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
-  API: string = 'http://localhost:8080/api/clientes';
+  API: string = 'http://localhost:8080/clientes';
   http = inject(HttpClient);
 
   constructor() { }

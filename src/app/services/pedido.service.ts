@@ -7,7 +7,7 @@ import { Pedido } from '../models/pedido';
   providedIn: 'root'
 })
 export class PedidoService {
-  API: string = 'http://localhost:8080/api/pedidos';
+  API: string = 'http://localhost:8080/pedidos';
   http = inject(HttpClient);
 
   constructor() { }
