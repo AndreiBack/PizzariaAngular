@@ -32,6 +32,7 @@ export class EnderecoService {
   exemploErro(): Observable<Endereco[]> {
     return this.http.get<Endereco[]>(this.API + '/erro');
   }
+  
   update(endereco: Endereco): Observable<Endereco> {
     return this.http.put<Endereco>(`${this.API}/${endereco.id}`, endereco);
 }

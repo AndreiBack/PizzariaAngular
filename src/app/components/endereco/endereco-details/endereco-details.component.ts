@@ -26,8 +26,8 @@ export class EnderecoDetailsComponent {
     if (this.isEdit) {
       // Modo de edição
       this.enderecoService.update(this.endereco).subscribe({
-        next: livro => {
-          this.retorno.emit(livro);
+        next: endereco => {
+          this.retorno.emit(endereco);
         },
         error: erro => {
           alert('Deu erro! Observe o erro no console!');
@@ -36,8 +36,8 @@ export class EnderecoDetailsComponent {
       });
     } else {
       this.enderecoService.save(this.endereco).subscribe({
-        next: livro => {
-          this.retorno.emit(livro);
+        next: endereco => {
+          this.retorno.emit(endereco);
         },
         error: erro => {
           alert('Deu erro! Observe o erro no console!');

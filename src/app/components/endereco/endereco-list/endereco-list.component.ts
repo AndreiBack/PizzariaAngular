@@ -64,10 +64,10 @@ export class EnderecoListComponent {
     this.EnderecoSelecionadoParaEdicao = Object.assign({}, endereco); 
     this.indiceSelecionadoParaEdicao = indice;
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'md' });
   }
 
-  addOuEditarLivro(endereco: Endereco) {
+  addOuEditarEndereco(endereco: Endereco) {
 
     this.listAll();
 
@@ -80,7 +80,7 @@ export class EnderecoListComponent {
     if (confirm('Deseja realmente excluir este endereco?')) {
       this.enderecoService.delete(id).subscribe({
         next: () => {
-          this.lista = this.lista.filter(livro => livro.id !== id);
+          this.lista = this.lista.filter(endereco => endereco.id !== id);
         },
         error: erro => {
           alert('Ocorreu um erro ao excluir o endereco. Confira o console para mais informações.');
