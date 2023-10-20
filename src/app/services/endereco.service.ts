@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { Endereco } from '../models/endereco';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnderecoService {
-  API: string = 'http://localhost:8080/api/enderecos';
+  API: string = 'http://localhost:8080/enderecos';
   http = inject(HttpClient);
 
   constructor() { }
@@ -18,9 +18,20 @@ export class EnderecoService {
   }
 
   save(endereco: Endereco): Observable<Endereco> {
-    return this.http.post<Endereco>(this.API, endereco);
+    return this.http.post<Endereco>(this.API, endereco).pipe(
+      catchError((error) => {
+        if (error.status === 201) {
+          return of(error.response); 
+        } else {
+          return throwError(error);
+        }
+      })
+    );
   }
 
+  exemploErro(): Observable<Endereco[]> {
+    return this.http.get<Endereco[]>(this.API + '/erro');
+  }
   update(endereco: Endereco): Observable<Endereco> {
     return this.http.put<Endereco>(`${this.API}/${endereco.id}`, endereco);
 }

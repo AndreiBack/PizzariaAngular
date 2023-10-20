@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Linear+B&family=Poppins&display=swap');
+
+
+table, th, td{
+    border: 2px solid purple;
+    border-collapse: collapse;
+    background-color: rgb(30, 30, 32);
+    color: white;
+    font-size: 2vw;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+  font-size: 2vw;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+.tudo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25vw;
+  text-align: center;
+
+}
+div.modal-header,div.modal-body,div.modal-footer{
+  background-color: rgb(30, 30, 32);
+}

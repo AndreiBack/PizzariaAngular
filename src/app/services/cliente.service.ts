@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Cliente } from '../models/cliente';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,19 @@ export class ClienteService {
   }
 
   save(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.API, cliente);
+    return this.http.post<Cliente>(this.API, cliente).pipe(
+      catchError((error) => {
+        if (error.status === 201) {
+          return of(error.response); 
+        } else {
+          return throwError(error);
+        }
+      })
+    );
+  }  
+
+  exemploErro(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.API + '/erro');
   }
 
   update(cliente: Cliente): Observable<Cliente> {

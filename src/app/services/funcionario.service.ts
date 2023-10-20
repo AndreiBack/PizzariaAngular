@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { Funcionario } from '../models/funcionario';
 
 @Injectable({
@@ -18,7 +18,19 @@ export class FuncionarioService {
   }
 
   save(funcionario: Funcionario): Observable<Funcionario> {
-    return this.http.post<Funcionario>(this.API, funcionario);
+    return this.http.post<Funcionario>(this.API, funcionario).pipe(
+      catchError((error) => {
+        if (error.status === 201) {
+          return of(error.response); 
+        } else {
+          return throwError(error);
+        }
+      })
+    );
+  }  
+
+  exemploErro(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(this.API + '/erro');
   }
 
   update(funcionario: Funcionario): Observable<Funcionario> {

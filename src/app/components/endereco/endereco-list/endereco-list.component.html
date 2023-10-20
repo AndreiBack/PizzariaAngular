@@ -1,1 +1,44 @@
-<p>endereco-list works!</p>
+
+
+<div class="tudo">
+    <div>
+<p>Listagem de livros</p>
+<table> 
+    <tr>
+        <th>cep</th>
+        <th>rua</th>
+        <th>bairro</th>
+        <th>numero</th>
+        <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
+    </tr>
+    
+    <tr *ngFor="let endereco of lista; let i = index">
+        <td scope="col">{{endereco.cep}}</td>
+        <td scope="col">{{endereco.rua}}</td>
+        <td scope="col">{{endereco.bairro}}</td>
+        <td scope="col">{{endereco.numero}}</td>
+        <td >
+            <button class="btn btn-outline-primary" (click)="editar(modal1, endereco, i)">🖋️</button>
+            <button class="btn btn-outline-danger" (click)="excluir(endereco.id)">🗑️</button>
+          </td>
+    </tr>
+
+</table>
+</div>
+
+</div>
+
+<ng-template #modal1 let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+     
+    <app-endereco-details [endereco]="EnderecoSelecionadoParaEdicao" (retorno)="addOuEditarLivro($event)" ></app-endereco-details>
+      
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
