@@ -6,5 +6,5 @@ export class Funcionario {
     cpf!: string;
     email!: string;
     senha!: string;
-
+    telefone!:string
 }

@@ -1,1 +1,21 @@
-<p>cliente-details works!</p>
+<form (ngSubmit)="salvar()">
+    <div class="cadastro">
+        <h1>Nome:</h1>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="cliente.nome">
+      
+        <h1>Cpf:</h1>
+        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="cliente.cpf">
+
+        <h1>Telefone:</h1>
+        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="cliente.telefone">
+
+       <!-- <h1>Endereco:</h1>
+        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="cliente.endereco">-->
+      
+      <br><br>
+      
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      
+    </form>

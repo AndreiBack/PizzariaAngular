@@ -1,1 +1,15 @@
-<p>pizza-details works!</p>
+<form (ngSubmit)="salvar()">
+    <div class="cadastro">
+        <h1>Tamanho:</h1>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="pizza.tamanho">
+      
+        <h1>Valor:</h1>
+        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="pizza.valor">
+      
+      <br><br>
+      
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      
+    </form>

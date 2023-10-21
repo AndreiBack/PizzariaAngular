@@ -1,1 +1,45 @@
-<p>funcionario-list works!</p>
+
+<div class="tudo">
+    <div>
+<p>Listagem de funcionarios</p>
+<table> 
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>cpf</th>
+        <th>telefone</th>
+
+        <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
+    </tr>
+    
+    <tr *ngFor="let funcionario of lista; let i = index">
+        <td scope="col">{{funcionario.nome}}</td>
+        <td scope="col">{{funcionario.idade}}</td>
+        <td scope="col">{{funcionario.cpf}}</td>
+        <td scope="col">{{funcionario.telefone}}</td>
+
+        <td >
+            <button class="btn btn-outline-primary" (click)="editar(modal1, funcionario, i)">🖋️</button>
+            <button class="btn btn-outline-danger" (click)="excluir(funcionario.id)">🗑️</button>
+          </td>
+    </tr>
+
+</table>
+</div>
+
+</div>
+
+<ng-template #modal1 let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+     
+    <app-funcionario-details [funcionario]="FuncionarioSelecionadoParaEdicao" (retorno)="addOuEditarFuncionario($event)" ></app-funcionario-details>
+      
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
