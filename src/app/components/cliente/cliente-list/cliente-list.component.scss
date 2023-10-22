@@ -19,9 +19,12 @@ p{
 .tudo{
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: 25vw;
   text-align: center;
+  padding-top: 8vw;
+  padding-bottom: 5vw;
 
 }
 div.modal-header,div.modal-body,div.modal-footer{

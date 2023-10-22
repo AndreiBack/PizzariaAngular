@@ -12,8 +12,8 @@
     <tr *ngFor="let sabor of lista; let i = index">
         <td scope="col">{{sabor.nome}}</td>
         <td scope="col">{{sabor.ingredientes}}</td>
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-primary" (click)="editar(modal1, sabor, i)">Editar</button> </td>
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento(sabor)">Lançar</button> </td>          
+            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, sabor, i)">🗒️</button> </td>
+            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento(sabor)">Lançar</button> </td>          
             <button class="btn btn-outline-danger" (click)="excluir(sabor.id)">🗑️</button>
 
     </tr>

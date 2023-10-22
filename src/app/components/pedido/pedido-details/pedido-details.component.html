@@ -10,7 +10,11 @@
 
         <h1>Quantidade:</h1>
         <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
-        [(ngModel)]="pedido.funcionario.id">
+        [(ngModel)]="pedido.quantidade">
+
+        <h1>ValorTotal:</h1>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="pedido.valorTotal">
 
         <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar pizza</button>
       

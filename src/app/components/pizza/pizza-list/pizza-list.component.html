@@ -13,8 +13,8 @@
         <td scope="col">{{pizza.tamanho}}</td>
         <td scope="col">{{pizza.valor}}</td>
     
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-primary" (click)="editar(modal1, pizza, i)">Editar</button> </td>
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento( pizza)">Lançar</button> </td>
+            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, pizza, i)">🗒️</button> </td>
+            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento( pizza)">Lançar</button> </td>
             <button class="btn btn-outline-danger" (click)="excluir(pizza.id)">🗑️</button>
          
     </tr>
