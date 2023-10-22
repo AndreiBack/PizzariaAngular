@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Sabor } from 'src/app/models/sabor';
 import { SaborService } from 'src/app/services/sabor.service';
@@ -16,6 +16,9 @@ export class SaborListComponent {
 
   modalService = inject(NgbModal);
   saborService = inject(SaborService);
+
+  @Output() retorno = new EventEmitter<Sabor>();
+  @Input() modoLancamento: boolean = false;
 
   constructor() {
 
@@ -88,6 +91,9 @@ export class SaborListComponent {
     }
   }
   
-
+  lancamento(sabor: Sabor){
+    
+    this.retorno.emit(sabor);
+  }
 
 }

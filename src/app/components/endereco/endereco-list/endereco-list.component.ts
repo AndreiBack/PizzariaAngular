@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Endereco } from 'src/app/models/endereco';
 import { EnderecoService } from 'src/app/services/endereco.service';
@@ -10,6 +10,9 @@ import { EnderecoService } from 'src/app/services/endereco.service';
 })
 export class EnderecoListComponent {
   lista: Endereco[] = [];
+
+  @Output() retorno = new EventEmitter<Endereco>();
+  @Input() modoLancamento: boolean = false;
 
   EnderecoSelecionadoParaEdicao: Endereco = new Endereco();
   indiceSelecionadoParaEdicao!: number;
@@ -90,7 +93,9 @@ export class EnderecoListComponent {
     }
   }
   
-
+  lancamento(endereco: Endereco){
+    this.retorno.emit(endereco);
+  }
 
 }
 

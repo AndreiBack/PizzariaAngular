@@ -14,10 +14,11 @@
         <td scope="col">{{produto.nome}}</td>
         <td scope="col">{{produto.descricao}}</td>
         <td scope="col">R${{produto.valor}}</td>
-        <td >
-            <button class="btn btn-outline-primary" (click)="editar(modal1, produto, i)">🖋️</button>
+    
+            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-primary" (click)="editar(modal1, produto, i)">Editar</button> </td>
+            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento(produto)">Lançar</button> </td>
             <button class="btn btn-outline-danger" (click)="excluir(produto.id)">🗑️</button>
-          </td>
+         
     </tr>
 
 </table>

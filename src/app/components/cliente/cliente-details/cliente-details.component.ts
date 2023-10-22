@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/models/cliente';
+import { Endereco } from 'src/app/models/endereco';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -13,6 +15,9 @@ export class ClienteDetailsComponent {
 
   clienteService = inject(ClienteService);
   isEdit = false; 
+
+  modalService = inject(NgbModal);
+  modalRef!: NgbModalRef;
 
   constructor() {
 
@@ -45,6 +50,26 @@ export class ClienteDetailsComponent {
         }
       });
     }
+  }
+
+  excluir(endereco: Endereco, indice: number) {
+
+    this.cliente.endereco.splice(indice,1);
+    
+  }
+  
+  retornoProdutosList(endereco: Endereco) {
+
+    if (this.cliente.endereco == null)
+      this.cliente.endereco = [];
+
+    this.cliente.endereco.push(endereco);
+    this.modalRef.dismiss();
+}
+
+
+  lancar(modal: any) {
+    this.modalRef = this.modalService.open(modal, { size: 'lg' });
   }
 
 }

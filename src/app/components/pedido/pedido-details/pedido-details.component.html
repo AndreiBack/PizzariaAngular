@@ -1,1 +1,94 @@
-<p>pedido-details works!</p>
+<form (ngSubmit)="salvar()">
+    <div class="cadastro">
+        <h1>Cliente:</h1>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="pedido.cliente.id">
+
+        <h1>Funcionario:</h1>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="pedido.funcionario.id">
+
+        <h1>Quantidade:</h1>
+        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="pedido.funcionario.id">
+
+        <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar pizza</button>
+      
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Tamanho</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pizzas of pedido.pizzas; let i = index">
+                    <th scope="row">{{ pizzas.id }}</th>
+                    <td> {{ pizzas.valor }} </td>
+                    <td> {{ pizzas.tamanho }} </td>
+                    <td> <button type="button" class="btn btn-primary" (click)="excluirPizza(pizzas,i)">Excluir</button> </td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+       
+        <button type="button" class="btn btn-primary" (click)="lancar(modal2)">Lançar produto </button> 
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let produtos of pedido.produtos; let i = index">
+                    <th scope="row">{{ produtos.id }}</th>
+                    <td> {{ produtos.nome }} </td>
+                    <td> {{ produtos.valor }} </td>
+                    <td> <button type="button" class="btn btn-primary" (click)="excluirProduto(produtos,i)">Excluir</button> </td>
+                </tr>
+            </tbody>
+        </table>
+
+      <br><br>
+
+      
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+
+    </form>
+
+
+    <ng-template #modal1 let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+           
+            <app-pizza-list [modoLancamento]="true" (retorno)="retornoPizzasList($event)" ></app-pizza-list>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>
+
+    <ng-template #modal2 let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+           
+            <app-produto-list [modoLancamento]="true" (retorno)="retornoProdutoList($event)" ></app-produto-list>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>

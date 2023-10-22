@@ -1,15 +1,52 @@
 <form (ngSubmit)="salvar()">
-    <div class="cadastro">
-        <h1>Tamanho:</h1>
-        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
-        [(ngModel)]="pizza.tamanho">
+  <div class="cadastro">
+    <h1>Tamanho:</h1>
+    <select class="form-control" name="tamanho" [(ngModel)]="pizza.tamanho">
+      <option value="P">P</option>
+      <option value="M">M</option>
+      <option value="G">G</option>
+      <option value="GG">GG</option>
+    </select>
+
+    <h1>Valor:</h1>
+    <input type="text" class="form-control" name="valor" [(ngModel)]="pizza.valor">
+
+    <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar produto</button> 
+    <table>
+      <thead>
+          <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">ingredientes</th>
+              <th scope="col"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let sabores of pizza.sabores; let i = index">
+              <th scope="row">{{ sabores.id }}</th>
+              <td> {{ sabores.nome }} </td>
+              <td> {{ sabores.ingredientes }} </td>
+              <td> <button type="button" class="btn btn-outline-danger" (click)="excluir(sabores,i)">🗑️</button> </td>
+          </tr>
+      </tbody>
+  </table>
+    <br><br>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </div>
+</form>
+
+<ng-template #modal1 let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+     
+      <app-sabor-list [modoLancamento]="true" (retorno)="retornoProdutosList($event)" ></app-sabor-list>
       
-        <h1>Valor:</h1>
-        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="pizza.valor">
-      
-      <br><br>
-      
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </div>
-      
-    </form>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

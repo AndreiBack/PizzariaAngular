@@ -7,5 +7,5 @@ export class Cliente {
     email!: string;
     senha!: string;
     telefone!: string;
-    endereco!: Endereco;
+    endereco!: Endereco[];
 }

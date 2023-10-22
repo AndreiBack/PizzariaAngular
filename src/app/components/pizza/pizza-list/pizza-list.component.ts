@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Pizza } from 'src/app/models/pizza';
 import { PizzaService } from 'src/app/services/pizza.service';
@@ -10,6 +10,9 @@ import { PizzaService } from 'src/app/services/pizza.service';
 })
 export class PizzaListComponent {
   lista: Pizza[] = [];
+
+  @Output() retorno = new EventEmitter<Pizza>();
+  @Input() modoLancamento: boolean = false;
 
   PizzaSelecionadoParaEdicao: Pizza = new Pizza();
   indiceSelecionadoParaEdicao!: number;
@@ -57,14 +60,14 @@ export class PizzaListComponent {
   adicionar(modal: any) {
     this.PizzaSelecionadoParaEdicao = new Pizza();
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   editar(modal: any, pizza: Pizza, indice: number) {
     this.PizzaSelecionadoParaEdicao = Object.assign({}, pizza); 
     this.indiceSelecionadoParaEdicao = indice;
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   addOuEditarPizza(pizza: Pizza) {
@@ -91,6 +94,10 @@ export class PizzaListComponent {
   }
   
 
+
+  lancamento(pizza: Pizza){
+    this.retorno.emit(pizza);
+  }
 
 }
 
