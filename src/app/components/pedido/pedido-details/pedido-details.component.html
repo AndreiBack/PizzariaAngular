@@ -1,23 +1,27 @@
 <form (ngSubmit)="salvar()">
     <div class="cadastro">
         <h1>Cliente:</h1>
-        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        <input type="number" class="form-control" placeholder="Digite o ID" name="exampleInputText1" aria-describedby="emailHelp"
         [(ngModel)]="pedido.cliente.id">
 
         <h1>Funcionario:</h1>
-        <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        <input type="number" class="form-control" placeholder="Digite o ID" name="exampleInputText1" aria-describedby="emailHelp"
         [(ngModel)]="pedido.funcionario.id">
 
-        <h1>Quantidade:</h1>
+        <h1>Observação:</h1>
         <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
+        [(ngModel)]="pedido.observacao">
+
+        <h1>Quantidade:</h1>
+        <input type="number" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
         [(ngModel)]="pedido.quantidade">
 
         <h1>ValorTotal:</h1>
         <input type="text" class="form-control" name="exampleInputText1" aria-describedby="emailHelp"
         [(ngModel)]="pedido.valorTotal">
-
+<br><br>
         <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar pizza</button>
-      
+      <br><br>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -39,7 +43,7 @@
         
        
         <button type="button" class="btn btn-primary" (click)="lancar(modal2)">Lançar produto </button> 
-
+<br><br>
         <table class="table table-striped">
             <thead>
                 <tr>

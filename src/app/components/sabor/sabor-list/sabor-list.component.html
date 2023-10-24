@@ -4,12 +4,14 @@
 <p>Listagem de sabores</p>
 <table> 
     <tr>
+        <th>Id</th>
         <th>Nome</th>
         <th>ingredientes</th>
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
     
     <tr *ngFor="let sabor of lista; let i = index">
+        <td scope="col">{{sabor.id}}</td>
         <td scope="col">{{sabor.nome}}</td>
         <td scope="col">{{sabor.ingredientes}}</td>
             <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, sabor, i)">🗒️</button> </td>

@@ -61,14 +61,14 @@ export class ProdutoListComponent {
   adicionar(modal: any) {
     this.ProdutoSelecionadoParaEdicao = new Produto();
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   editar(modal: any, produto: Produto, indice: number) {
     this.ProdutoSelecionadoParaEdicao = Object.assign({}, produto); 
     this.indiceSelecionadoParaEdicao = indice;
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   addOuEditarProduto(produto: Produto) {

@@ -4,6 +4,7 @@
 <p>Listagem de produtos</p>
 <table> 
     <tr>
+        <th>id</th>
         <th>Nome</th>
         <th>Descrição</th>
         <th>Valor</th>
@@ -11,12 +12,12 @@
     </tr>
     
     <tr *ngFor="let produto of lista; let i = index">
+        <td scope="col">{{produto.id}}</td>
         <td scope="col">{{produto.nome}}</td>
         <td scope="col">{{produto.descricao}}</td>
         <td scope="col">R${{produto.valor}}</td>
-    
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-primary" (click)="editar(modal1, produto, i)">Editar</button> </td>
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-primary" (click)="lancamento(produto)">Lançar</button> </td>
+            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, produto, i)">🖋️</button> </td>
+            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento(produto)">Lançar</button> </td>
             <button class="btn btn-outline-danger" (click)="excluir(produto.id)">🗑️</button>
          
     </tr>

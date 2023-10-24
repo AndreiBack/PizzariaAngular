@@ -57,14 +57,14 @@ export class PedidoListComponent {
   adicionar(modal: any) {
     this.PedidoSelecionadoParaEdicao = new Pedido();
 
-    this.modalService.open(modal, { size: 'md' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   editar(modal: any, pedido: Pedido, indice: number) {
     this.PedidoSelecionadoParaEdicao = Object.assign({}, pedido); 
     this.indiceSelecionadoParaEdicao = indice;
 
-    this.modalService.open(modal, { size: 'md' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   addOuEditarPedido(pedido: Pedido) {

@@ -4,12 +4,14 @@
 <p>Listagem de pizzas</p>
 <table> 
     <tr>
+        <th>Id</th>
         <th>Tamanho</th>
         <th>Valor</th>
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
     
     <tr *ngFor="let pizza of lista; let i = index">
+        <td scope="col">{{pizza.id}}</td>
         <td scope="col">{{pizza.tamanho}}</td>
         <td scope="col">{{pizza.valor}}</td>
     

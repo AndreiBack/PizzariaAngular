@@ -9,6 +9,7 @@ export class Pedido {
     quantidade!: number;
     valorTotal!: number;
     dataHora!: Date;
+    observacao!: string;
     cliente: Cliente= new Cliente();;
     funcionario: Funcionario= new Funcionario();;
     pizzas!: Pizza[];

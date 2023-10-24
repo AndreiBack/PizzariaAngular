@@ -5,14 +5,16 @@
 <p>Listagem de enderecos</p>
 <table> 
     <tr>
-        <th>cep</th>
-        <th>rua</th>
-        <th>bairro</th>
-        <th>numero</th>
+        <th>Id</th>
+        <th>Cep</th>
+        <th>Rua</th>
+        <th>Bairro</th>
+        <th>Numero</th>
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
     
     <tr *ngFor="let endereco of lista; let i = index">
+        <td scope="col">{{endereco.id}}</td>
         <td scope="col">{{endereco.cep}}</td>
         <td scope="col">{{endereco.rua}}</td>
         <td scope="col">{{endereco.bairro}}</td>

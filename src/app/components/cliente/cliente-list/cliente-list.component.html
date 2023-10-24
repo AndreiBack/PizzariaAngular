@@ -4,6 +4,7 @@
 <p>Listagem de clientes</p>
 <table> 
     <tr>
+        <th>ID</th> 
         <th>Nome</th> 
         <th>CPF</th>
         <th>Telefone</th>
@@ -11,6 +12,7 @@
     </tr>
     
     <tr *ngFor="let cliente of lista; let i = index">
+        <td scope="col">{{cliente.id}}</td>
         <td scope="col">{{cliente.nome}}</td>
         <td scope="col">{{cliente.cpf}}</td>
         <td scope="col">{{cliente.telefone}}</td>

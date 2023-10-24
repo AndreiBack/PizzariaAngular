@@ -4,17 +4,19 @@
 <p>Listagem de Pedidos</p>
 <table> 
     <tr>
+        <th>Id</th> 
         <th>Status</th> 
         <th>valorTotal</th>
-        <th>Data e hora</th>
+        <th>Observação</th>
         <th>Cliente</th>
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
     
     <tr *ngFor="let pedido of lista; let i = index">
+        <td scope="col">{{pedido.id}}</td>
         <td scope="col">{{pedido.status}}</td>
         <td scope="col">{{pedido.valorTotal}}</td>
-        <td scope="col">{{pedido.dataHora}}</td>
+        <td scope="col">{{pedido.observacao}}</td>
         <td scope="col">{{pedido.cliente.nome}}</td>
         <td >
             <button class="btn btn-outline-primary" (click)="editar(modal1, pedido, i)">🗒️</button>

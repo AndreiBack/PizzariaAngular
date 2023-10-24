@@ -4,15 +4,17 @@
 <p>Listagem de funcionarios</p>
 <table> 
     <tr>
+        <th>Id</th>
         <th>Nome</th>
         <th>Idade</th>
-        <th>cpf</th>
-        <th>telefone</th>
+        <th>Cpf</th>
+        <th>Telefone</th>
 
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
     
     <tr *ngFor="let funcionario of lista; let i = index">
+        <td scope="col">{{funcionario.id}}</td>
         <td scope="col">{{funcionario.nome}}</td>
         <td scope="col">{{funcionario.idade}}</td>
         <td scope="col">{{funcionario.cpf}}</td>
