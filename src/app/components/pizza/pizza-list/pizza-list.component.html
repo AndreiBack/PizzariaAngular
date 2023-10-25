@@ -9,11 +9,10 @@
         <th>Valor</th>
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
-    
     <tr *ngFor="let pizza of lista; let i = index">
         <td scope="col">{{pizza.id}}</td>
         <td scope="col">{{pizza.tamanho}}</td>
-        <td scope="col">{{pizza.valor}}</td>
+        <td scope="col">R${{pizza.valor}}</td>
     
             <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, pizza, i)">🗒️</button> </td>
             <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento( pizza)">Lançar</button> </td>
@@ -28,7 +27,7 @@
 
 <ng-template #modal1 let-modal>
   <div class="modal-header">
-      <h4 class="modal-title">Modal title</h4>
+      <h4 class="modal-title">Pizza</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">

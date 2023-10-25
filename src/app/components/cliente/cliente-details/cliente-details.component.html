@@ -8,14 +8,13 @@
         <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="cliente.cpf">
 
         <h1>Telefone:</h1>
-        <input type="text" class="form-control" name="exampleInputPassword1" [(ngModel)]="cliente.telefone">
+        <input type="text" class="form-control" name="exampleInputPassword2" [(ngModel)]="cliente.telefone">
         <br><br>
         <button type="button" class="btn btn-primary" (click)="lancar(modal1)">Lançar endereco</button> 
 
         <table >
             <thead>
                 <tr>
-                    <th scope="col">#ID</th>
                     <th scope="col">CEP</th>
                     <th scope="col">rua</th>
                     <th scope="col">bairro</th>
@@ -24,7 +23,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let endereco of cliente.endereco; let i = index">
-                    <th scope="row">{{ endereco.id }}</th>
                     <td> {{ endereco.cep }} </td>
                     <td> {{ endereco.rua }} </td>
                     <td> {{ endereco.bairro }} </td>

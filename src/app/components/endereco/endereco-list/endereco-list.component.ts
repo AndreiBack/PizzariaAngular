@@ -60,14 +60,14 @@ export class EnderecoListComponent {
   adicionar(modal: any) {
     this.EnderecoSelecionadoParaEdicao = new Endereco();
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   editar(modal: any, endereco: Endereco, indice: number) {
     this.EnderecoSelecionadoParaEdicao = Object.assign({}, endereco); 
     this.indiceSelecionadoParaEdicao = indice;
 
-    this.modalService.open(modal, { size: 'md' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   addOuEditarEndereco(endereco: Endereco) {

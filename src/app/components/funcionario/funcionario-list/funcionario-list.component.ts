@@ -57,14 +57,14 @@ export class FuncionarioListComponent {
   adicionar(modal: any) {
     this.FuncionarioSelecionadoParaEdicao = new Funcionario();
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   editar(modal: any, funcionario: Funcionario, indice: number) {
     this.FuncionarioSelecionadoParaEdicao = Object.assign({}, funcionario); 
     this.indiceSelecionadoParaEdicao = indice;
 
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(modal, { size: 'lg' });
   }
 
   addOuEditarFuncionario(funcionario: Funcionario) {

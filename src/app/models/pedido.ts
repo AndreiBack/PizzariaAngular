@@ -2,10 +2,11 @@ import { Cliente } from "./cliente";
 import { Funcionario } from "./funcionario";
 import { Pizza } from "./pizza";
 import { Produto } from "./produto";
+import { Status } from "./status";
 
 export class Pedido {
     id!: number;
-    status!: boolean;
+    status!: Status;
     quantidade!: number;
     valorTotal!: number;
     dataHora!: Date;

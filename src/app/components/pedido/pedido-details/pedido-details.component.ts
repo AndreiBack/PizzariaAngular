@@ -29,7 +29,6 @@ export class PedidoDetailsComponent {
   }
 
   salvar() {
-    this.pedido.status =true;
     if (this.isEdit) {
       // Modo de edição
       this.pedidoService.update(this.pedido).subscribe({
@@ -42,6 +41,7 @@ export class PedidoDetailsComponent {
         }
       });
     } else {
+      this.pedido.status = 0;
       this.pedidoService.save(this.pedido).subscribe({
         next: pedido => {
           this.retorno.emit(pedido);

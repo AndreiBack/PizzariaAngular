@@ -1,6 +1,27 @@
 .nav-header{
     display: flex;
-    justify-content: center;
-    gap: 8vw;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
     background-color: rgb(32,33,36);
+}
+input{
+    height: 2vw;
+    width:6vw;
+}
+.inputs{
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    padding-left: 6vw;
+    font-size: 1vw;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.5vw;
+    color: purple;
+    letter-spacing: 2px;
 }
