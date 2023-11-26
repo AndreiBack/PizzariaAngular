@@ -7,13 +7,19 @@
         <th>Id</th>
         <th>Tamanho</th>
         <th>Valor</th>
+        <th>Sabores</th>
+
         <th> <button class="btn btn-outline-primary" (click)="adicionar(modal1)" >+</button> </th> 
     </tr>
     <tr *ngFor="let pizza of lista; let i = index">
         <td scope="col">{{pizza.id}}</td>
         <td scope="col">{{pizza.tamanho}}</td>
         <td scope="col">R${{pizza.valor}}</td>
-    
+      <td scope="col">
+          <!-- Exibir os sabores da pizza -->
+          <span *ngFor="let sabor of pizza.sabores">
+            {{sabor.nome}},
+          </span>
             <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, pizza, i)">🗒️</button> </td>
             <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento( pizza)">Lançar</button> </td>
             <button class="btn btn-outline-danger" (click)="excluir(pizza.id)">🗑️</button>
