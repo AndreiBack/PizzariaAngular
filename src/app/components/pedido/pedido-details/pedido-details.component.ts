@@ -1,8 +1,12 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Cliente } from 'src/app/models/cliente';
+import { Funcionario } from 'src/app/models/funcionario';
 import { Pedido } from 'src/app/models/pedido';
 import { Pizza } from 'src/app/models/pizza';
 import { Produto } from 'src/app/models/produto';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
 import { PedidoService } from 'src/app/services/pedido.service';
 
 @Component({
@@ -10,22 +14,36 @@ import { PedidoService } from 'src/app/services/pedido.service';
   templateUrl: './pedido-details.component.html',
   styleUrls: ['./pedido-details.component.scss']
 })
-export class PedidoDetailsComponent {
+export class PedidoDetailsComponent implements OnInit {
   @Input() pedido: Pedido = new Pedido();
   @Output() retorno = new EventEmitter<Pedido>();
 
   pedidoService = inject(PedidoService);
   isEdit = false; 
 
+  clienteService !: ClienteService;
+  funcionarioService !: FuncionarioService;
   modalService = inject(NgbModal);
   modalRef!: NgbModalRef;
+  clientes: Cliente[] = [];
+  funcionarios: Funcionario[] = [];
 
-  constructor() {
-
+  constructor(pedidoService: PedidoService, clienteService: ClienteService, funcionarioService: FuncionarioService, modalService: NgbModal) {
+    this.pedidoService = pedidoService;
+    this.clienteService = clienteService;
+    this.funcionarioService = funcionarioService;
+    this.modalService = modalService;
   }
+
 
   ngOnInit() {
     this.isEdit = this.pedido.id > 0; 
+    this.clienteService.listAll().subscribe(clientes => {
+      this.clientes = clientes;
+    });
+      this.funcionarioService.listAll().subscribe(funcionarios => {
+        this.funcionarios = funcionarios;
+    });
   }
 
   salvar() {
@@ -83,6 +101,11 @@ retornoProdutoList(produto: Produto) {
   this.modalRef.dismiss();
 }
 
+
+receberCliente(cliente : Cliente){
+  this.pedido.cliente = cliente;
+  this.modalRef.dismiss();
+}
 
   lancar(modal: any) {
     this.modalRef = this.modalService.open(modal, { size: 'lg' });

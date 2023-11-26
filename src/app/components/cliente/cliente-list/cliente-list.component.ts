@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -10,6 +10,10 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class ClienteListComponent {
   lista: Cliente[] = [];
+
+  @Output() retorno = new EventEmitter<Cliente>();
+  @Input() modoLancamento: boolean = false;
+
 
   ClienteSelecionadoParaEdicao: Cliente = new Cliente();
   indiceSelecionadoParaEdicao!: number;
@@ -90,9 +94,13 @@ export class ClienteListComponent {
     }
   }
   
-
+  lancamento(cliente: Cliente){
+    this.retorno.emit(cliente);
+  }
 
 }
+
+
 
 
 

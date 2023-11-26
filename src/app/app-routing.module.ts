@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { ClienteDetailsComponent } from './components/cliente/cliente-details/cliente-details.component';
 import { EnderecoListComponent } from './components/endereco/endereco-list/endereco-list.component';
@@ -16,41 +15,38 @@ import { ProdutoDetailsComponent } from './components/produto/produto-details/pr
 import { SaborListComponent } from './components/sabor/sabor-list/sabor-list.component';
 import { SaborDetailsComponent } from './components/sabor/sabor-details/sabor-details.component';
 import { IndexComponent } from './components/layout/index/index.component';
+import { LoginComponent } from './components/sistema/login/login.component';
+import { rotaGuard } from './guards/rota.guard';
 
 const routes: Routes = [
-  {path:"", component:IndexComponent},
-  {path: "pizzaria", component:IndexComponent, children:[
+  {path:"", redirectTo: "login", pathMatch: 'full'},
+  {path: "login", component:LoginComponent },
+  
+  {path: "admin", component: IndexComponent, canActivate: [rotaGuard], children: [
     {path:"clientes", component: ClienteListComponent},
     {path: "clientes/novo", component: ClienteDetailsComponent},
 
     {path:"enderecos", component: EnderecoListComponent},
     {path: "enderecos/novo", component: EnderecoDetailsComponent},
 
-    {path:"funcionario", component: FuncionarioListComponent},
+    {path:"funcionarios", component: FuncionarioListComponent},
     {path: "funcionario/novo", component: FuncionarioDetailsComponent},
 
-    {path:"pedido", component: PedidoListComponent},
+    {path:"pedidos", component: PedidoListComponent},
     {path: "pedido/novo", component: PedidoDetailsComponent},
 
     
-    {path:"pizza", component: PizzaListComponent},
+    {path:"pizzas", component: PizzaListComponent},
     {path: "pizza/novo", component: PizzaDetailsComponent},
 
-    {path:"produto", component: ProdutoListComponent},
+    {path:"produtos", component: ProdutoListComponent},
     {path: "produto/novo", component: ProdutoDetailsComponent},
 
-    {path:"sabor", component: SaborListComponent},
+    {path:"sabores", component: SaborListComponent},
     {path: "sabor/novo", component: SaborDetailsComponent}
   ]
 }
-
-
-
 ];
-
-
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

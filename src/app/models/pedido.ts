@@ -7,12 +7,16 @@ import { Status } from "./status";
 export class Pedido {
     id!: number;
     status!: Status;
-    quantidade!: number;
     valorTotal!: number;
     dataHora!: Date;
     observacao!: string;
-    cliente: Cliente= new Cliente();;
-    funcionario: Funcionario= new Funcionario();;
+    cliente : Cliente = new Cliente;
+    funcionario : Funcionario = new Funcionario;
     pizzas!: Pizza[];
     produtos!: Produto[];
+
+    excluirCliente() {
+        this.cliente = new Cliente(); 
+    }
 }
+
