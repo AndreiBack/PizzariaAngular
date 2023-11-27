@@ -3,6 +3,7 @@
     align-items: center;
     font-family: 'Poppins', sans-serif;
     background-color: rgb(32,33,36);
+    gap: 8vw;
 }
 input{
     height: 2vw;
@@ -11,7 +12,7 @@ input{
 .inputs{
     display: flex;
     justify-content: center;
-    gap: 5vw;
+    gap: 2vw;
     padding-left: 6vw;
     font-size: 1vw;
 
