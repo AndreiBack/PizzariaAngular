@@ -1,23 +1,36 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { EnderecoService } from './endereco.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('EnderecoService', () => {
   let service: EnderecoService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA
-      ]
     });
     service = TestBed.inject(EnderecoService);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+
+  it('should delete an address via DELETE', () => {
+    const enderecoId = 1;
+    
+    service.delete(enderecoId).subscribe();
+
+    const req = httpMock.expectOne(`${service.API}/${enderecoId}`);
+    expect(req.request.method).toBe('DELETE');
+    req.flush(null); 
   });
 });

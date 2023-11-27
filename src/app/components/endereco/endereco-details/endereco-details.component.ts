@@ -24,7 +24,6 @@ export class EnderecoDetailsComponent {
 
   salvar() {
     if (this.isEdit) {
-      // Modo de edição
       this.enderecoService.update(this.endereco).subscribe({
         next: endereco => {
           this.retorno.emit(endereco);
