@@ -59,7 +59,7 @@ describe('ProdutosdetailsComponent', () => {
   });
 
 
-  beforeEach(() => { //MOCANDO DADOS
+  beforeEach(() => { 
     let produto = new Produto();
     produto.id = 1;
     produto.nome = 'Pizza';
