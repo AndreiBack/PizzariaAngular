@@ -16,10 +16,11 @@
         <td scope="col">{{cliente.nome}}</td>
         <td scope="col">{{cliente.cpf}}</td>
         <td scope="col">{{cliente.telefone}}</td>
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, cliente, i)">🗒️</button> 
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento(cliente)">Lançar</button> 
-            <td><button class="btn btn-outline-danger" (click)="excluir(cliente.id)">🗑️</button></td>
-          
+        <td>
+             <button  *ngIf="!modoLancamento"  type="button" class="btn btn-outline-primary" (click)="editar(modal1, cliente, i)">🗒️</button> 
+            <button  *ngIf="modoLancamento" type="button" class="btn btn-outline-primary" (click)="lancamento(cliente)">Lançar</button> 
+            <button class="btn btn-outline-danger" (click)="excluir(cliente.id)">🗑️</button>
+        </td>
     </tr>
 
 </table>

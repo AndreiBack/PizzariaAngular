@@ -19,11 +19,11 @@
         <td scope="col">{{endereco.rua}}</td>
         <td scope="col">{{endereco.bairro}}</td>
         <td scope="col">{{endereco.numero}}</td>
-        
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, endereco, i)">🗒️</button> </td>
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento(endereco)">Lançar</button> </td>
+        <td>
+             <button *ngIf="!modoLancamento" type="button" class="btn btn-outline-primary" (click)="editar(modal1, endereco, i)">🗒️</button> 
+            <button *ngIf="modoLancamento" type="button" class="btn btn-outline-primary" (click)="lancamento(endereco)">Lançar</button> 
             <button class="btn btn-outline-danger" (click)="excluir(endereco.id)">🗑️</button>
-         
+        </td>
     </tr>
 
 </table>

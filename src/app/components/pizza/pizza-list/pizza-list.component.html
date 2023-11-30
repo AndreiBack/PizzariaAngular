@@ -20,10 +20,11 @@
           <span *ngFor="let sabor of pizza.sabores">
             {{sabor.nome}},
           </span>
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, pizza, i)">🗒️</button> </td>
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento( pizza)">Lançar</button> </td>
-            <button class="btn btn-outline-danger" (click)="excluir(pizza.id)">🗑️</button>
-         
+          <td>
+          <button *ngIf="!modoLancamento" type="button" class="btn btn-outline-primary" (click)="editar(modal1, pizza, i)">🗒️</button> 
+          <button *ngIf="modoLancamento" type="button" class="btn btn-outline-primary" (click)="lancamento( pizza)">Lançar</button> 
+          <button class="btn btn-outline-danger" (click)="excluir(pizza.id)">🗑️</button>
+        </td>
     </tr>
 
 </table>

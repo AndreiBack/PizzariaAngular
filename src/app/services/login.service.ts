@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  API: string = "http://localhost:8080/api/login"
+  API: string = "http://localhost:80/api/login"
   http = inject(HttpClient);
 
   constructor() { }

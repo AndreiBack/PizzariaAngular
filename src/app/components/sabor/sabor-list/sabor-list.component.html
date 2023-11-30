@@ -14,10 +14,11 @@
         <td scope="col">{{sabor.id}}</td>
         <td scope="col">{{sabor.nome}}</td>
         <td scope="col">{{sabor.ingredientes}}</td>
-            <td *ngIf="!modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="editar(modal1, sabor, i)">🗒️</button> </td>
-            <td *ngIf="modoLancamento" > <button type="button" class="btn btn-outline-primary" (click)="lancamento(sabor)">Lançar</button> </td>          
+        <td>
+             <button type="button" *ngIf="!modoLancamento" class="btn btn-outline-primary" (click)="editar(modal1, sabor, i)">🗒️</button> 
+            <button type="button" *ngIf="modoLancamento" class="btn btn-outline-primary" (click)="lancamento(sabor)">Lançar</button> 
             <button class="btn btn-outline-danger" (click)="excluir(sabor.id)">🗑️</button>
-
+        </td>
     </tr>
 
 </table>
