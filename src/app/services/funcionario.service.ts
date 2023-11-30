@@ -7,7 +7,7 @@ import { Funcionario } from '../models/funcionario';
   providedIn: 'root'
 })
 export class FuncionarioService {
-  API: string = 'http://localhost:80/funcionarios';
+  API: string = 'http://204.236.251.232:8080/funcionarios';
   http = inject(HttpClient);
 
   constructor() { }

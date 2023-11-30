@@ -7,7 +7,7 @@ import { Pizza } from '../models/pizza';
   providedIn: 'root'
 })
 export class PizzaService {
-  API: string = 'http://localhost:80/pizzas';
+  API: string = 'http://204.236.251.232:8080/pizzas';
   http = inject(HttpClient);
 
   constructor() { }
