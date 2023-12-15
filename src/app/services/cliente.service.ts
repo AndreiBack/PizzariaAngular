@@ -28,7 +28,7 @@ export class ClienteService {
       })
     );
   }  
-
+     
   exemploErro(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.API + '/erro');
   }
